@@ -1,0 +1,45 @@
+<div class="registros-page">
+
+    <section class="card card-form" id="cardFormLimite">
+        <div class="card-form__header">
+            <h2 id="formTituloLimite">Nuevo límite de gasto</h2>
+            <button type="button" class="link-btn d-none" id="btnCancelarEdicionLimite">Cancelar edición</button>
+        </div>
+
+        <form id="formLimiteGasto" autocomplete="off">
+            <input type="hidden" id="pk_limite">
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" required autofocus>
+                </div>
+                <div class="field">
+                    <label for="monto">Monto límite</label>
+                    <div class="input-money">
+                        <span>$</span>
+                        <input type="number" id="monto" inputmode="decimal" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="comentario">Comentario</label>
+                <input type="text" id="comentario" placeholder="Notas opcionales">
+            </div>
+
+            <button type="submit" class="btn-primary btn-block" id="btnGuardarLimite">Guardar límite</button>
+        </form>
+    </section>
+
+    <section>
+        <div class="feed__header">
+            <h2>Límites registrados</h2>
+            <span class="feed__total" id="feedTotalLimite"></span>
+        </div>
+
+        <div id="listaLimite" class="feed__list"></div>
+        <p class="feed__empty d-none" id="limiteVacio">Aún no registras límites de gasto.</p>
+    </section>
+
+</div>

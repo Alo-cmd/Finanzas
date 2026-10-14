@@ -1,0 +1,31 @@
+<div class="registros-page">
+
+    <section class="card card-form" id="cardFormCategoria">
+        <div class="card-form__header">
+            <h2 id="formTituloCategoria">Nueva categoría</h2>
+            <button type="button" class="link-btn d-none" id="btnCancelarEdicionCategoria">Cancelar edición</button>
+        </div>
+
+        <form id="formCategorias" autocomplete="off">
+            <input type="hidden" id="pk_categoria">
+
+            <div class="field">
+                <label for="nombre">Nombre de la categoría</label>
+                <input type="text" id="nombre" placeholder="Ej. Comida, Transporte, Servicios..." required autofocus>
+            </div>
+
+            <button type="submit" class="btn-primary btn-block" id="btnGuardarCategoria">Guardar categoría</button>
+        </form>
+    </section>
+
+    <section>
+        <div class="feed__header">
+            <h2>Categorías registradas</h2>
+            <span class="feed__total" id="feedTotalCategorias"></span>
+        </div>
+
+        <div id="tablaCategorias" class="feed__list"></div>
+        <p class="feed__empty d-none" id="categoriasVacio">Aún no registras categorías.</p>
+    </section>
+
+</div>

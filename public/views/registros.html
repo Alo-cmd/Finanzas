@@ -1,0 +1,23 @@
+<div class="registros-page">
+
+    <div class="feed__header">
+        <h2>Registros de gastos</h2>
+        <span class="feed__total" id="feedTotal"></span>
+    </div>
+
+    <div class="registros__filtros">
+        <div class="registros__buscador">
+            <input type="search" id="buscadorRegistros" placeholder="Buscar por nombre o categoría…" autocomplete="off">
+        </div>
+        <div class="registros__fecha">
+            <!-- El propio input ya trae el ícono de calendario del navegador -->
+            <input type="date" id="fechaRegistros" aria-label="Elegir fecha a consultar">
+            <button type="button" class="link-btn d-none" id="btnHoy">Hoy</button>
+        </div>
+    </div>
+
+    <div id="listaGasto" class="feed__list"></div>
+    <p class="feed__empty d-none" id="feedVacio">Aún no hay gastos registrados.</p>
+    <button type="button" class="btn-secondary btn-block d-none" id="btnCargarMas" style="margin-top: 12px;">Cargar más</button>
+
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis Finanzas</title>
+<script>
+    // Mientras seguimos iterando el diseño, se evita que el navegador sirva
+    // una copia vieja en caché del CSS
+    document.write('<link rel="stylesheet" href="/css/estilos.css?v=' + Date.now() + '">');
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- Menú lateral: visible en escritorio, oculto en móvil -->
+    <aside class="side-nav" id="sideNav">
+        <div class="side-nav__brand">Mis Finanzas</div>
+
+        <button type="button" class="side-nav__item" data-vista="gasto" onclick="cargarVista('gasto')">Nuevo gasto</button>
+        <button type="button" class="side-nav__item" data-vista="registros" onclick="cargarVista('registros')">Registros</button>
+        <button type="button" class="side-nav__item" data-vista="categorias" onclick="cargarVista('categorias')">Categorías</button>
+        <button type="button" class="side-nav__item" data-vista="ahorro" onclick="cargarVista('ahorro')">Ahorro</button>
+        <button type="button" class="side-nav__item" data-vista="limitegasto" onclick="cargarVista('limitegasto')">Límites de gasto</button>
+    </aside>
+
+    <div class="app-main">
+
+        <!-- Encabezado: visible solo en móvil (en escritorio el título va en el menú lateral) -->
+        <header class="app-header">
+            <span class="app-header__title">Mis Finanzas</span>
+        </header>
+
+        <main id="contenido"></main>
+
+        <!-- Menú inferior: visible solo en móvil, sin iconos -->
+        <nav class="bottom-nav" id="bottomNav">
+            <button type="button" class="bottom-nav__item" data-vista="gasto" onclick="cargarVista('gasto')">Nuevo</button>
+            <button type="button" class="bottom-nav__item" data-vista="registros" onclick="cargarVista('registros')">Registros</button>
+            <button type="button" class="bottom-nav__item" data-vista="categorias" onclick="cargarVista('categorias')">Categorías</button>
+            <button type="button" class="bottom-nav__item" data-vista="ahorro" onclick="cargarVista('ahorro')">Ahorro</button>
+            <button type="button" class="bottom-nav__item" data-vista="limitegasto" onclick="cargarVista('limitegasto')">Límites</button>
+        </nav>
+
+    </div>
+</div>
+
+<!-- Aviso de confirmación, vive fuera de #contenido para sobrevivir el cambio de vista -->
+<div class="app-toast" id="toastApp" role="status" aria-live="polite">
+    <span class="app-toast__icono" aria-hidden="true">✓</span>
+    <span class="app-toast__mensaje" id="toastMensaje"></span>
+    <button type="button" class="app-toast__cerrar" id="toastCerrar" aria-label="Cerrar aviso">×</button>
+</div>
+
+<!-- Modal de confirmación (reemplaza el confirm() feo del navegador), también fuera de #contenido -->
+<div class="app-confirm-backdrop" id="appConfirmBackdrop">
+    <div class="app-confirm" id="appConfirm" role="alertdialog" aria-modal="true" aria-describedby="appConfirmMensaje">
+        <p class="app-confirm__mensaje" id="appConfirmMensaje"></p>
+        <div class="app-confirm__acciones">
+            <button type="button" class="btn-secondary" id="appConfirmCancelar">Cancelar</button>
+            <button type="button" class="btn-primary" id="appConfirmAceptar">Confirmar</button>
+        </div>
+    </div>
+</div>
+
+<script src="/js/menu.js"></script>
+</body>
+</html>

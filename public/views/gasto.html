@@ -1,0 +1,78 @@
+<div class="gasto-page">
+
+    <!-- Alta rápida de gasto: solo lo esencial por defecto. Este apartado
+         es únicamente para registrar; los movimientos se consultan en "Registros" -->
+    <section class="card card-form" id="cardFormGasto">
+        <div class="card-form__header">
+            <h2 id="formTitulo">Nuevo gasto</h2>
+            <button type="button" class="link-btn d-none" id="btnCancelarEdicion">Cancelar edición</button>
+        </div>
+
+        <form id="formGasto" autocomplete="off">
+            <input type="hidden" id="pk_gasto">
+
+            <div class="field">
+                <label for="nombre_gasto">¿En qué gastaste?</label>
+                <input type="text" id="nombre_gasto" placeholder="Ej. Café, Uber, Súper..." required autofocus>
+            </div>
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="total">Total</label>
+                    <div class="input-money">
+                        <span>$</span>
+                        <input type="number" id="total" inputmode="decimal" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="fk_categoria">Categoría</label>
+                    <select id="fk_categoria" required>
+                        <option value="">Elegir…</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Progressive disclosure: el detalle solo aparece si el usuario lo pide -->
+            <details class="detalle-toggle" id="detalleToggle">
+                <summary>Agregar más detalle</summary>
+                <div class="detalle-body">
+                    <div class="field">
+                        <label for="description">Descripción</label>
+                        <input type="text" id="description" placeholder="Notas opcionales">
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" inputmode="decimal" step="0.01" min="0" placeholder="Opcional">
+                        </div>
+                        <div class="field">
+                            <label for="precio">Precio unitario</label>
+                            <input type="number" id="precio" inputmode="decimal" step="0.01" min="0" placeholder="Opcional">
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary btn-block" id="btnGuardarGasto">Guardar gasto</button>
+                <button type="button" class="btn-secondary btn-block" id="btnAgregarLista">Agregar a la lista y seguir</button>
+            </div>
+        </form>
+
+        <!-- Alta en lote: varios gastos se acumulan aquí y se guardan de un solo golpe -->
+        <div class="pendientes d-none" id="bloquePendientes">
+            <div class="pendientes__header">
+                <h3>Por guardar (<span id="pendientesCount">0</span>)</h3>
+                <button type="button" class="link-btn" id="btnLimpiarPendientes">Vaciar</button>
+            </div>
+            <ul class="pendientes__list" id="pendientesList"></ul>
+            <button type="button" class="btn-primary btn-block" id="btnGuardarTodos">Guardar todos</button>
+        </div>
+
+        <div class="form-footer-link">
+            <button type="button" class="link-btn" onclick="cargarVista('registros')">Ver registros</button>
+        </div>
+    </section>
+
+</div>

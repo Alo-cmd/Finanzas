@@ -1,0 +1,4 @@
+Instalar dependencias con npm ínstall
+  
+Para correr/levantarlo es con este comando 
+node app.js en la terminal apuntado a la carpeta del proyecto.

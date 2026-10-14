@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Mis Finanzas</title>
+<link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+<iframe id="appFrame" style="width:100%; height:100vh; border:none; display:block;"></iframe>
+<script>
+    // Mientras seguimos iterando el diseño, se evita que el navegador cachee
+    // una versión vieja del iframe principal (que a su vez carga todo lo demás)
+    document.getElementById('appFrame').src = '/views/layout.html?v=' + Date.now();
+</script>
+</body>
+</html>
