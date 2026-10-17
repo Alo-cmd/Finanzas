@@ -16,6 +16,8 @@ app.use('/ahorro', require('./routes/ahorro.routes'));
 app.use('/limitegasto', require('./routes/limitegasto.routes'));
 app.use('/gasto', require('./routes/gasto.routes'));
 
-app.listen(3000, () => {
-console.log('Servidor en http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor en http://localhost:${PORT}`);
 });
